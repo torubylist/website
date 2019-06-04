@@ -694,7 +694,7 @@ k8s.gcr.io/nginx-slim:0.7
 ```
 
 
-当你改变 `partition` 时，StatefulSet 会自动的更新 `web-2` Pod，这是因为 Pod 的序号小于或等于 `partition`。
+当你改变 `partition` 时，StatefulSet 会自动的更新 `web-2` Pod，这是因为 Pod 的序号大于或等于 `partition`。
 
 
 删除 `web-1` Pod。
@@ -1051,12 +1051,6 @@ web-2     1/1       Running   0         10s
 web-3     1/1       Running   0         26s
 ```
 
-<!
-The StatefulSet controller launched two new Pods, and it did not wait for 
-the first to become Running and Ready prior to launching the second.
-
-Keep this terminal open, and in another terminal delete the `web` StatefulSet.
--->
 StatefulSet 控制器启动了两个新的 Pod，而且在启动第二个之前并没有等待第一个变成 Running 和 Ready 状态。
 
 保持这个终端打开，并在另一个终端删除 `web` StatefulSet。
